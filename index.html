@@ -1,0 +1,438 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Leis bizuradas, cronogramas e raio-x de provas para quem estuda para PM, PP, PC e Guardas Municipais. Por Thaissa Ribeiro.">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font:14px system-ui,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Dossiê Aprovação</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap">
+<style>
+:root{
+  --vinho:#6B1A33; --noite:#3A0D1D; --dourado:#C9A45C; --pessego:#E9B48C; --areia:#F3D9C2; --creme:#FBF4EC; --grafite:#3B3B40;
+  --bg:var(--creme); --surface:#FFFFFF; --surface-2:var(--areia); --fg:var(--grafite); --fg-soft:#6a5f62;
+  --title:var(--vinho); --accent:var(--vinho); --accent-fg:var(--creme); --gold:#A8843F; --line:#e8d6c6;
+  --band:var(--noite); --band-fg:var(--creme); --band-soft:#e7cdbd;
+  --serif:"Playfair Display", Georgia, "Times New Roman", serif;
+  --sans:"Montserrat", "Helvetica Neue", Arial, sans-serif;
+  --gutter-l:max(16px, env(safe-area-inset-left, 0px));
+  --gutter-r:max(16px, env(safe-area-inset-right, 0px));
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#2B0915; --surface:#3A0D1D; --surface-2:#4a1428; --fg:#F3E6DA; --fg-soft:#d3bcae;
+  --title:var(--areia); --accent:var(--dourado); --accent-fg:#2B0915; --gold:#D9B66E; --line:#5a2236;
+  --band:#1f0610; --band-fg:var(--creme); --band-soft:#d9bfae; color-scheme:dark }}
+:root[data-theme="dark"]{
+  --bg:#2B0915; --surface:#3A0D1D; --surface-2:#4a1428; --fg:#F3E6DA; --fg-soft:#d3bcae;
+  --title:var(--areia); --accent:var(--dourado); --accent-fg:#2B0915; --gold:#D9B66E; --line:#5a2236;
+  --band:#1f0610; --band-fg:var(--creme); --band-soft:#d9bfae; color-scheme:dark }
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{background:var(--bg);color:var(--fg);font-family:var(--sans);font-size:16px;line-height:1.65}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--band)}
+a{color:inherit}
+h1,h2,h3{font-family:var(--serif);color:var(--title);line-height:1.15;text-wrap:balance;margin:0}
+p{margin:0}
+.wrap{max-width:1120px;margin:0 auto;padding-left:var(--gutter-l);padding-right:var(--gutter-r)}
+.eyebrow{font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
+:focus-visible{outline:2px solid var(--dourado);outline-offset:3px;border-radius:4px}
+
+/* Navegação */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:var(--band);color:var(--band-fg)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:12px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.brand b{font-family:var(--serif);font-size:1.1rem;font-weight:700;letter-spacing:.01em}
+.nav ul{display:flex;gap:22px;list-style:none;margin:0;padding:0;font-size:.82rem;font-weight:600;letter-spacing:.04em}
+.nav ul a{text-decoration:none;opacity:.85}
+.nav ul a:hover{opacity:1;color:var(--dourado)}
+@media (max-width:720px){.nav ul{display:none}}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:var(--sans);font-weight:700;font-size:.88rem;letter-spacing:.03em;text-decoration:none;border-radius:999px;padding:12px 22px;border:1.5px solid transparent;cursor:pointer;transition:transform .15s, background .15s}
+.btn:hover{transform:translateY(-1px)}
+.btn-gold{background:var(--dourado);color:#2B0915}
+.btn-gold:hover{background:#d6b371}
+.btn-main{background:var(--accent);color:var(--accent-fg)}
+.btn-ghost{border-color:var(--line);color:var(--fg);background:transparent}
+.btn-sm{padding:8px 16px;font-size:.78rem}
+
+/* Capa */
+.hero .wrap{display:grid;grid-template-columns:1fr;gap:56px;align-items:center;padding-block:72px 64px}
+@media (max-width:880px){.hero .wrap{grid-template-columns:1fr;gap:40px;padding-block:48px}}
+.hero h1{font-size:clamp(2.6rem,6vw,4.4rem);font-weight:800;margin-top:14px}
+.hero h1 em{font-style:italic;font-weight:600;color:var(--gold)}
+.hero .tag{font-family:var(--serif);font-style:italic;font-size:min(1.4rem,3.9vw);color:var(--fg);margin-top:18px;white-space:nowrap}
+.hero .lead{margin-top:16px;max-width:52ch;color:var(--fg-soft)}
+.hero .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+
+/* Seções */
+section{scroll-margin-top:72px}
+.sec .wrap{padding-block:80px}
+@media (max-width:720px){.sec .wrap{padding-block:56px}}
+.hero .wrap{padding-bottom:0!important}
+#sobre .wrap{padding-top:28px}
+.sec-head{display:grid;gap:12px;margin-bottom:40px;max-width:62ch}
+.sec-head h2{font-size:clamp(1.9rem,4vw,2.7rem)}
+.sec-head p{color:var(--fg-soft)}
+
+/* Notas de lei espalhadas nas laterais da capa */
+.hero{position:relative;z-index:1}
+.notas{position:absolute;inset:0 0 auto;height:0;pointer-events:none}
+.nota{position:absolute;width:142px;background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:10px 11px 11px;display:grid;gap:5px;box-shadow:0 14px 26px -16px rgba(58,13,29,.45)}
+.nota::before{content:"";position:absolute;top:-7px;left:50%;width:46px;height:14px;margin-left:-23px;background:var(--pessego);opacity:.55;transform:rotate(-3deg)}
+.nota .ref{font-size:.54rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+.nota p{font-family:var(--serif);font-size:.74rem;line-height:1.4;color:var(--fg)}
+.nota mark{background:linear-gradient(transparent 45%, rgba(233,180,140,.75) 45%);color:inherit;padding:0 2px}
+.nota .bizu{justify-self:start;font-size:.58rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);border:1.5px solid currentColor;border-radius:3px;padding:2px 6px}
+.n1{left:1.5%;top:40px;transform:rotate(-7deg)}
+.n2{left:3.5%;top:235px;transform:rotate(4deg)}
+.c1{left:1.2%;top:430px;transform:rotate(-4deg)}
+.c2{left:3.5%;top:625px;transform:rotate(5deg)}
+.n3{right:1.5%;top:55px;transform:rotate(6deg)}
+.n4{right:3.5%;top:250px;transform:rotate(-5deg)}
+.c3{right:1.2%;top:445px;transform:rotate(4deg)}
+.c4{right:3.5%;top:640px;transform:rotate(-6deg)}
+.crono ul{list-style:none;margin:0;padding:0;display:grid;gap:5px}
+.crono li{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:6px;font-size:.66rem;color:var(--fg)}
+.crono li i{width:11px;height:11px;border:1.5px solid var(--gold);border-radius:2px;position:relative}
+.crono li.ok i{background:var(--gold)}
+.crono li.ok i::after{content:"";position:absolute;left:3px;top:0;width:3px;height:6px;border:solid var(--surface);border-width:0 1.5px 1.5px 0;transform:rotate(45deg)}
+.crono li.ok span{text-decoration:line-through;color:var(--fg-soft)}
+.crono li em{font-style:normal;font-size:.6rem;color:var(--fg-soft);font-variant-numeric:tabular-nums}
+.crono .barra{height:6px;border-radius:99px;background:var(--surface-2);overflow:hidden}
+.crono .barra span{display:block;height:100%;background:var(--accent)}
+.crono .prog{font-family:var(--sans);font-size:.66rem;font-weight:600;color:var(--fg-soft)}
+.crono .meta{font-family:var(--sans);font-size:.78rem;color:var(--fg-soft)}
+.crono .meta b{font-family:var(--serif);font-size:1.2rem;color:var(--title)}
+.hero .wrap{position:relative}
+@media (max-width:1100px){.notas{display:none}}
+
+/* Centralização da capa e do Sobre */
+.hero .wrap > div{text-align:center;justify-self:center}
+.hero .lead,.hero .tag{margin-left:auto;margin-right:auto}
+.hero .actions{justify-content:center}
+.sobre .sec-head{margin-bottom:12px;margin-left:auto;margin-right:auto;text-align:center;justify-items:center}
+.sobre .texto{margin-left:auto;margin-right:auto;text-align:center}
+.sobre .grid{justify-items:center}
+.sobre .texto p:not(:first-child){text-align:justify;hyphens:auto}
+
+#materiais .sec-head{margin-left:auto;margin-right:auto;text-align:center;justify-items:center}
+.aprov .sec-head{margin-left:auto;margin-right:auto;text-align:center;justify-items:center}
+
+/* Sobre */
+.sobre .grid{display:grid;grid-template-columns:1fr;gap:48px;align-items:start}
+@media (max-width:820px){.sobre .grid{grid-template-columns:1fr;gap:32px}}
+.sobre .texto{display:grid;gap:16px;max-width:60ch;min-width:0}
+.sobre .texto p:first-child{font-family:var(--serif);font-size:1.3rem;line-height:1.5;color:var(--title)}
+/* Aprovações */
+.aprov{background:var(--band);color:var(--band-fg)}
+.aprov h2{color:var(--creme)}
+.aprov .sec-head p{color:var(--band-soft)}
+.selos{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid rgba(201,164,92,.35);border-bottom:1px solid rgba(201,164,92,.35)}
+.selo{display:grid;gap:6px;align-content:start;padding:28px 24px;min-width:0}
+.selo + .selo{border-left:1px solid rgba(201,164,92,.25)}
+.selo .sigla{font-family:var(--serif);font-size:2.2rem;font-weight:800;color:var(--dourado);line-height:1;margin-bottom:6px}
+.selo .cargo{font-weight:700;font-size:.95rem;color:var(--creme)}
+.selo .orgao{font-size:.85rem;color:var(--band-soft)}
+.selo .atual-tag{margin-top:8px;font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--dourado)}
+@media (max-width:900px){.selos{grid-template-columns:repeat(2,1fr)}.selo:nth-child(3){border-left:0}.selo:nth-child(n+3){border-top:1px solid rgba(201,164,92,.25)}}
+@media (max-width:440px){.selos{grid-template-columns:1fr}.selo + .selo{border-left:0;border-top:1px solid rgba(201,164,92,.25)}.selo{padding:22px 4px}}
+/* Materiais */
+.pastas{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:8px}
+@media (max-width:900px){.pastas{grid-template-columns:1fr}}
+.pasta{position:relative;margin-top:20px;display:flex;flex-direction:column;min-width:0}
+.pasta .aba{position:absolute;top:-20px;left:0;font-size:.66rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:5px 14px 9px;border-radius:9px 9px 0 0;background:var(--surface-2);color:var(--title)}
+.pasta .corpo{flex:1;background:var(--surface);border:1px solid var(--line);border-radius:0 14px 14px 14px;padding:26px 24px 24px;display:flex;flex-direction:column;gap:14px}
+.pasta h3{font-size:1.45rem}
+.pasta p{color:var(--fg-soft);font-size:.95rem}
+.pasta ul{margin:0;padding:0 0 0 18px;font-size:.9rem;display:grid;gap:4px}
+.pasta ul li::marker{color:var(--dourado)}
+.preco{display:flex;align-items:baseline;gap:8px;margin-top:auto;padding-top:14px;border-top:1px dashed var(--line);font-variant-numeric:tabular-nums}
+.preco strong{font-family:var(--serif);font-size:1.7rem;color:var(--title)}
+.preco small{font-size:.78rem;color:var(--fg-soft)}
+.pasta .btn{align-self:flex-start}
+
+.lista-leis{display:grid;gap:8px;margin-top:4px}
+.lei-op{display:flex;justify-content:space-between;align-items:center;gap:12px;text-decoration:none;border:1.5px solid var(--line);border-radius:10px;padding:11px 14px;font-weight:600;font-size:.9rem;color:var(--fg);transition:border-color .15s, background .15s}
+.lei-op b{font-size:.8rem;color:var(--title);white-space:nowrap;font-variant-numeric:tabular-nums}
+.lei-op:hover{border-color:var(--dourado);background:var(--surface-2)}
+.painel-pacote{grid-column:1/-1;display:grid;grid-template-columns:1fr auto;gap:24px;align-items:end;border-top:1px dashed var(--line);padding-top:22px}
+@media (max-width:820px){.painel-pacote{grid-template-columns:1fr}}
+.conta{display:grid;gap:8px;max-width:440px;font-variant-numeric:tabular-nums}
+.conta .linha{display:flex;justify-content:space-between;gap:16px;font-size:.92rem}
+.conta .linha b{color:var(--fg)}
+.conta .riscado{color:var(--fg-soft)}
+.conta .riscado b{color:var(--fg-soft);text-decoration:line-through;font-weight:500}
+.conta .total{border-top:1px solid var(--line);padding-top:10px;margin-top:4px;font-weight:700}
+.conta .total b{font-family:var(--serif);font-size:1.6rem;color:var(--title)}
+.conta .economia{font-size:.85rem;color:var(--gold);font-weight:600}
+.combo{margin-top:40px;display:grid;grid-template-columns:1fr auto;gap:28px;align-items:center;background:var(--surface-2);border-radius:18px;padding:30px 32px}
+@media (max-width:820px){.combo{grid-template-columns:1fr;gap:18px;padding:26px 22px}}
+.combo .mono{width:72px;height:72px}
+.combo h3{font-size:1.5rem}
+.combo .info{display:grid;gap:8px;min-width:0}
+.combo .info p{font-size:.92rem;color:var(--fg)}
+.combo .leis{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+.combo .leis span{font-size:.74rem;font-weight:600;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:3px 11px}
+
+/* Como comprar */
+.compra .sec-head{margin-bottom:12px}
+.compra .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+@media (max-width:820px){.compra .grid{grid-template-columns:1fr}}
+.passo{display:grid;gap:8px;align-content:start;min-width:0}
+.passo .n{font-family:var(--serif);font-size:2.2rem;font-weight:800;color:var(--dourado);line-height:1}
+.passo b{font-size:1.02rem}
+.passo p{font-size:.92rem;color:var(--fg-soft)}
+
+.contato{margin-top:48px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px}
+@media (max-width:820px){.contato{grid-template-columns:1fr}}
+.canal{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px 20px;display:grid;gap:6px;min-width:0}
+.canal .eyebrow{color:var(--fg-soft)}
+.canal .valor{font-weight:700;color:var(--fg);word-break:break-word;user-select:all}
+.canal .acoes{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.perfil{display:flex;align-items:center;gap:12px;min-width:0}
+.perfil .foto{width:56px;height:56px;border-radius:50%;flex:none;object-fit:cover}
+.ico-chat{flex:none;color:var(--gold)}
+.copiar{font:inherit;font-size:.75rem;font-weight:700;letter-spacing:.04em;background:transparent;color:var(--title);border:1.5px solid var(--line);border-radius:999px;padding:6px 14px;cursor:pointer}
+.copiar:hover{border-color:var(--dourado)}
+
+/* Rodapé */
+.credito{background:var(--band);text-align:center}
+.credito .wrap{padding-block:22px;display:block}
+.credito a{font-size:.8rem;letter-spacing:.06em;color:var(--band-soft);text-decoration:none}
+.credito a b{color:var(--dourado)}
+.credito a:hover{text-decoration:underline}
+</style>
+</head>
+<body>
+
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="mono" viewBox="0 0 64 64">
+      <circle cx="32" cy="32" r="31" fill="#6B1A33"/>
+      <circle cx="32" cy="32" r="27.5" fill="none" stroke="#C9A45C" stroke-width="1.1"/>
+      <circle cx="32" cy="32" r="25.6" fill="none" stroke="#C9A45C" stroke-width=".5" opacity=".7"/>
+      <text x="25.5" y="41" text-anchor="middle" font-family="Playfair Display, Georgia, serif" font-style="italic" font-weight="700" font-size="27" fill="#F3D9C2">D</text>
+      <text x="38.5" y="41" text-anchor="middle" font-family="Playfair Display, Georgia, serif" font-style="italic" font-weight="700" font-size="27" fill="#C9A45C">A</text>
+      <path d="M20 46.5h24" stroke="#C9A45C" stroke-width=".9" stroke-linecap="round"/>
+      <path d="M32 11.2l1.3 1.3-1.3 1.3-1.3-1.3z" fill="#C9A45C"/>
+      <path d="M32 50.2l1.3 1.3-1.3 1.3-1.3-1.3z" fill="#C9A45C"/>
+    </symbol>
+  </defs>
+</svg>
+
+<nav class="nav" aria-label="Principal">
+  <div class="wrap">
+    <a class="brand" href="#inicio"><svg width="34" height="34" aria-hidden="true"><use href="#mono"/></svg><b>Dossiê Aprovação</b></a>
+    <ul>
+      <li><a href="#sobre">Sobre Thaissa Ribeiro</a></li>
+      <li><a href="#aprovacoes">Aprovações</a></li>
+      <li><a href="#materiais">Materiais</a></li>
+      <li><a href="#comprar">Como comprar</a></li>
+    </ul>
+    <a class="btn btn-gold btn-sm" href="https://wa.me/5585985252056?text=Oi%2C%20Thaissa!%20Tenho%20interesse%20em%20adquirir%20e%20quero%20saber%20mais%20sobre%20seus%20materiais." target="_blank" rel="noopener">WhatsApp</a>
+  </div>
+</nav>
+
+<header class="hero" id="inicio">
+  <div class="notas" aria-hidden="true">
+    <div class="nota n1"><span class="ref">Art. 33 · Lei 11.343/06</span><p>Tráfico de drogas: reclusão de <mark>5 a 15 anos</mark> e multa.</p><span class="bizu">Bizu</span></div>
+    <div class="nota n2"><span class="ref">Art. 7º · Lei 11.340/06</span><p>Violência física, psicológica, sexual, <mark>patrimonial e moral</mark>.</p><span class="bizu">Cai muito</span></div>
+    <div class="nota n3"><span class="ref">Art. 14 · Lei 10.826/03</span><p>Porte ilegal de arma de uso permitido: reclusão de <mark>2 a 4 anos</mark>.</p><span class="bizu">Bizu</span></div>
+    <div class="nota n4"><span class="ref">Art. 1º · Lei 13.869/19</span><p>Abuso de autoridade exige <mark>dolo específico</mark>, até por mero capricho.</p><span class="bizu">Pegadinha</span></div>
+    <div class="nota crono c1"><span class="ref">Cronograma · Segunda</span><ul><li class="ok"><i></i><span>Direito Penal</span><em>1h30</em></li><li class="ok"><i></i><span>Lei de Drogas</span><em>1h</em></li><li class=""><i></i><span>Questões</span><em>1h</em></li><li class=""><i></i><span>Revisão</span><em>30min</em></li></ul><span class="bizu">4h/dia</span></div>
+    <div class="nota crono c2"><span class="ref">Cronograma · Semana 3</span><div class="barra"><span style="width:62%"></span></div><p class="prog">62% concluído</p><ul><li class="ok"><i></i><span>Constitucional</span><em>2h</em></li><li class=""><i></i><span>Simulado</span><em>3h</em></li></ul></div>
+    <div class="nota crono c3"><span class="ref">Cronograma · Terça</span><ul><li class="ok"><i></i><span>Processo Penal</span><em>1h</em></li><li class=""><i></i><span>Maria da Penha</span><em>40min</em></li><li class=""><i></i><span>Revisão</span><em>20min</em></li></ul><span class="bizu">2h/dia</span></div>
+    <div class="nota crono c4"><span class="ref">Meta da semana</span><p class="meta"><b>8h</b> de 12h</p><div class="barra"><span style="width:67%"></span></div><ul><li class="ok"><i></i><span>Raio-X da banca</span><em>1h</em></li><li class=""><i></i><span>Leis extravagantes</span><em>2h</em></li></ul></div>
+  </div>
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">por Thaissa Ribeiro · carreiras policiais</span>
+      <h1>Dossiê <em>Aprovação</em></h1>
+      <p class="tag">Material de quem passou, para quem vai passar.</p>
+      <p class="lead">Leis bizuradas, cronogramas e raio-x de provas anteriores para quem estuda para PM, PP, PC e Guardas Municipais.</p>
+      <div class="actions">
+        <a class="btn btn-main" href="#materiais">Ver materiais</a>
+        <a class="btn btn-main" href="#cronogramas">Ver cronogramas</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="sec sobre" id="sobre">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Sobre Thaissa Ribeiro</span>
+    </div>
+    <div class="grid">
+      <div class="texto">
+        <p>Sou Thaissa Ribeiro, oficial investigadora da Polícia Civil do Ceará.</p>
+        <p>Sou formada em Direito e pós-graduada em Direito Penal e Processual Penal, em Inteligência do Estado e Inteligência Policial e em Segurança Pública e Direito Penitenciário.</p>
+        <p>Antes de chegar aqui, fui advogada e policial militar do Ceará. Passei por quatro concursos da área policial, incluindo o de Delegada da Polícia Civil de São Paulo, e aprendi na prática o que mais cai, onde as bancas gostam de pegar o candidato e como organizar o estudo quando o tempo é curto.</p>
+        <p>O Dossiê Aprovação reúne esse caminho em materiais diretos ao ponto: lei seca com os artigos que mais caem, jurisprudência que a banca cobra, pegadinhas e questões comentadas.</p>      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec aprov" id="aprovacoes">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Aprovações</span>
+      <h2>Quatro concursos estaduais</h2>
+    </div>
+    <div class="selos">
+      <div class="selo"><span class="sigla">PMCE</span><span class="cargo">Soldado</span><span class="orgao">Polícia Militar do Ceará - 2021</span></div>
+      <div class="selo"><span class="sigla">PPCE</span><span class="cargo">Policial Penal</span><span class="orgao">Polícia Penal do Ceará - 2024</span></div>
+      <div class="selo"><span class="sigla">PCSP</span><span class="cargo">Delegada de Polícia</span><span class="orgao">Polícia Civil de São Paulo - 2023</span></div>
+      <div class="selo"><span class="sigla">PCCE</span><span class="cargo">Oficial Investigadora</span><span class="orgao">Polícia Civil do Ceará - 2025</span><span class="atual-tag">Cargo atual</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="materiais">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Materiais</span>
+      <h2>Escolha o seu dossiê</h2>
+      <p>Toque em um material para falar comigo no WhatsApp e receber todas as informações e/ou tirar suas dúvidas.</p>
+    </div>
+
+    <div class="pastas">
+      <article class="pasta">
+        <span class="aba">Leis bizuradas</span>
+        <div class="corpo">
+          <h3>Leis Bizuradas</h3>
+          <p>Uma lei esquematizada para você estudar e revisar o que realmente importa para sua prova.</p>
+          <ul>
+            <li>Artigos que mais caem</li>
+            <li>Jurisprudência e súmulas</li>
+            <li>Como a banca cobra e pegadinhas</li>
+            <li>Mapas mentais</li>
+            <li>Questões</li>
+          </ul>
+          <div class="preco"><strong>R$ 39,90</strong><small>por lei</small></div>
+          <button class="btn btn-main btn-sm" type="button" id="btn-leis" aria-expanded="false" aria-controls="lista-leis">Quero uma lei</button>
+          <div class="lista-leis" id="lista-leis" hidden>
+            <span class="eyebrow">Escolha a lei</span>
+            <!-- Trocar cada href pelo link de compra e pagamento da lei -->
+            <a class="lei-op" href="https://wa.me/5585985252056?text=Oi%2C%20Thaissa!%20Quero%20comprar%20a%20Lei%20de%20Drogas." target="_blank" rel="noopener"><span>Lei de Drogas</span><b>R$ 39,90 →</b></a>
+            <a class="lei-op" href="https://wa.me/5585985252056?text=Oi%2C%20Thaissa!%20Quero%20comprar%20a%20Lei%20Maria%20da%20Penha." target="_blank" rel="noopener"><span>Lei Maria da Penha</span><b>R$ 39,90 →</b></a>
+            <a class="lei-op" href="https://wa.me/5585985252056?text=Oi%2C%20Thaissa!%20Quero%20comprar%20a%20Estatuto%20do%20Desarmamento." target="_blank" rel="noopener"><span>Estatuto do Desarmamento</span><b>R$ 39,90 →</b></a>
+            <a class="lei-op" href="https://wa.me/5585985252056?text=Oi%2C%20Thaissa!%20Quero%20comprar%20a%20Lei%20de%20Crimes%20de%20Preconceito." target="_blank" rel="noopener"><span>Lei de Crimes de Preconceito</span><b>R$ 39,90 →</b></a>
+            <a class="lei-op" href="https://wa.me/5585985252056?text=Oi%2C%20Thaissa!%20Quero%20comprar%20a%20Lei%20de%20Abuso%20de%20Autoridade." target="_blank" rel="noopener"><span>Lei de Abuso de Autoridade</span><b>R$ 39,90 →</b></a>
+          </div>
+        </div>
+      </article>
+
+      <article class="pasta" id="cronogramas" style="scroll-margin-top:96px">
+        <span class="aba">Cronogramas</span>
+        <div class="corpo">
+          <h3>Cronogramas de Estudo</h3>
+          <p>Planejamento pronto para você só sentar e estudar. Cronogramas prontos pro concurso escolhido ou personalizados de acordo com sua disponibilidade de tempo e dificuldades.</p>
+          <ul>
+            <li>Cronograma pro concurso escolhido ou;</li>
+            <li>Cronograma personalizado</li>
+          </ul>
+          <div class="preco"><strong>Consulte</strong><small>valores de acordo com seu cronograma</small></div>
+          <a class="btn btn-main btn-sm" href="https://wa.me/5585985252056?text=Oi%2C%20Thaissa!%20Tenho%20interesse%20em%20adquirir%20e%20quero%20saber%20mais%20sobre%20seus%20materiais.%20(Cronogramas)" target="_blank" rel="noopener">Quero um cronograma</a>
+        </div>
+      </article>
+
+      <article class="pasta">
+        <span class="aba">Raio-X</span>
+        <div class="corpo">
+          <h3>Raio-X GMF 2023</h3>
+          <p>A prova da Guarda Municipal de Fortaleza dissecada, para você saber o que estudar para o próximo concurso.</p>
+          <ul>
+            <li>O que caiu e com que peso</li>
+            <li>Leis extravagantes mais cobradas</li>
+            <li>Foco no concurso previsto para 2027</li>
+          </ul>
+          <div class="preco"><strong>R$ 19,90</strong><small>avulso</small></div>
+          <a class="btn btn-main btn-sm" href="https://wa.me/5585985252056?text=Oi%2C%20Thaissa!%20Tenho%20interesse%20em%20adquirir%20e%20quero%20saber%20mais%20sobre%20seus%20materiais.%20(Raio-X%20GMF%202023)" target="_blank" rel="noopener">Quero o Raio-X</a>
+        </div>
+      </article>
+    </div>
+
+    <div class="combo">
+      <div class="info">
+        <span class="eyebrow">Pacote</span>
+        <h3>Raio-X de brinde + 5 leis bizuradas</h3>
+        <p>No pacote, cada lei sai por <strong>R$ 29,90</strong>. Dá para incluir também as leis específicas da sua carreira.</p>
+        <div class="leis"><span>Lei de Drogas</span><span>Estatuto do Desarmamento</span><span>Abuso de Autoridade</span><span>Maria da Penha</span><span>Crimes de Preconceito</span></div>
+      </div>
+      <button class="btn btn-gold" type="button" id="btn-pacote" aria-expanded="false" aria-controls="painel-pacote">Quero o pacote</button>
+      <div class="painel-pacote" id="painel-pacote" hidden>
+        <div class="conta">
+          <div class="linha"><span>5 leis bizuradas × R$ 29,90</span><b>R$ 149,50</b></div>
+          <div class="linha"><span>Raio-X GMF 2023</span><b>Brinde</b></div>
+          <div class="linha riscado"><span>Valor das 5 leis avulsas</span><b>R$ 199,50</b></div>
+          <div class="linha total"><span>Total do pacote</span><b>R$ 149,50</b></div>
+          <p class="economia">Você economiza R$ 50,00 e ainda leva o Raio-X.</p>
+        </div>
+        <!-- Trocar o href pelo link de compra e pagamento do pacote -->
+        <a class="btn btn-main" href="https://wa.me/5585985252056?text=Oi%2C%20Thaissa!%20Quero%20comprar%20o%20pacote%20com%205%20leis%20bizuradas%20%2B%20Raio-X%20(R%24%20149%2C50)." target="_blank" rel="noopener">Ir para o pagamento · R$ 149,50</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec compra" id="comprar" style="background:var(--surface-2)">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Como comprar</span>
+      <h2>Simples e direto</h2>
+    </div>
+    <div class="grid">
+      <div class="passo"><span class="n">1</span><b>Chame no WhatsApp</b><p>Diga qual material ou pacote você quer e para qual concurso está estudando.</p></div>
+      <div class="passo"><span class="n">2</span><b>Escolha como pagar</b><p>Pix, débito ou crédito em até 10x (com juros da maquininha).</p></div>
+      <div class="passo"><span class="n">3</span><b>Receba o link</b><p>Materiais e cronogramas prontos em até 24 horas. Cronogramas personalizados em até 7 dias.</p></div>
+    </div>
+
+    <div class="contato">
+      <div class="canal">
+        <span class="eyebrow">WhatsApp</span>
+        <div class="perfil"><svg class="ico-chat" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3h11A2.5 2.5 0 0 1 20 5.5v8a2.5 2.5 0 0 1-2.5 2.5H10l-4.2 3.6c-.5.4-1.3.1-1.3-.6V16A2.5 2.5 0 0 1 4 13.5z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><circle cx="8.5" cy="9.5" r="1.1" fill="currentColor"/><circle cx="12" cy="9.5" r="1.1" fill="currentColor"/><circle cx="15.5" cy="9.5" r="1.1" fill="currentColor"/></svg><span class="valor" id="v-zap">(85) 98525-2056</span></div>
+        <div class="acoes">
+          <a class="btn btn-main btn-sm" href="https://wa.me/5585985252056?text=Oi%2C%20Thaissa!%20Tenho%20interesse%20em%20adquirir%20e%20quero%20saber%20mais%20sobre%20seus%20materiais." target="_blank" rel="noopener">Abrir conversa</a>
+          <button class="copiar" type="button" data-copy="v-zap">Copiar</button>
+        </div>
+      </div>
+      <div class="canal">
+        <span class="eyebrow">Instagram</span>
+        <div class="perfil"><img class="foto" src="data:image/jpeg;base64,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" alt="Foto de perfil de Thaissa Ribeiro" width="56" height="56"><span class="valor">@thaissapribeiro</span></div>
+        <div class="acoes"><a class="btn btn-main btn-sm" href="https://www.instagram.com/thaissapribeiro/" target="_blank" rel="noopener">Seguir</a></div>
+      </div>
+      <div class="canal">
+        <span class="eyebrow">E-mail</span>
+        <div class="perfil"><svg class="ico-chat" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M4 7l8 6 8-6" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="valor" id="v-mail">mailpessoaribeiro@gmail.com</span></div>
+        <div class="acoes"><button class="copiar" type="button" data-copy="v-mail">Copiar e-mail</button></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="credito">
+  <div class="wrap"><a href="https://www.ribexai.com.br/" target="_blank" rel="noopener">Desenvolvido por <b>RibeX AI</b></a></div>
+</footer>
+
+<script>
+var bp=document.getElementById('btn-pacote'), pp=document.getElementById('painel-pacote');
+if(bp){bp.addEventListener('click',function(){var abrir=pp.hidden;pp.hidden=!abrir;bp.setAttribute('aria-expanded',abrir);bp.textContent=abrir?'Fechar':'Quero o pacote';});}
+var bl=document.getElementById('btn-leis'), ll=document.getElementById('lista-leis');
+if(bl){bl.addEventListener('click',function(){var abrir=ll.hidden;ll.hidden=!abrir;bl.setAttribute('aria-expanded',abrir);bl.textContent=abrir?'Fechar opções':'Quero uma lei';});}
+document.querySelectorAll('.copiar').forEach(function(b){
+  b.addEventListener('click', function(){
+    var el = document.getElementById(b.dataset.copy), txt = el.textContent.trim(), orig = b.textContent;
+    function done(){ b.textContent = 'Copiado'; setTimeout(function(){ b.textContent = orig; }, 1600); }
+    function fallback(){ var r = document.createRange(); r.selectNodeContents(el); var s = getSelection(); s.removeAllRanges(); s.addRange(r); b.textContent = 'Selecionado'; setTimeout(function(){ b.textContent = orig; }, 1600); }
+    try { navigator.clipboard.writeText(txt).then(done, fallback); } catch(e){ fallback(); }
+  });
+});
+</script>
+
+</body>
+</html>
