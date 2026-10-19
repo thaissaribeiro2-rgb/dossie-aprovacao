@@ -19,15 +19,8 @@
   --sans:"Montserrat", "Helvetica Neue", Arial, sans-serif;
   --gutter-l:max(16px, env(safe-area-inset-left, 0px));
   --gutter-r:max(16px, env(safe-area-inset-right, 0px));
+  color-scheme:light;
 }
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
-  --bg:#2B0915; --surface:#3A0D1D; --surface-2:#4a1428; --fg:#F3E6DA; --fg-soft:#d3bcae;
-  --title:var(--areia); --accent:var(--dourado); --accent-fg:#2B0915; --gold:#D9B66E; --line:#5a2236;
-  --band:#1f0610; --band-fg:var(--creme); --band-soft:#d9bfae; color-scheme:dark }}
-:root[data-theme="dark"]{
-  --bg:#2B0915; --surface:#3A0D1D; --surface-2:#4a1428; --fg:#F3E6DA; --fg-soft:#d3bcae;
-  --title:var(--areia); --accent:var(--dourado); --accent-fg:#2B0915; --gold:#D9B66E; --line:#5a2236;
-  --band:#1f0610; --band-fg:var(--creme); --band-soft:#d9bfae; color-scheme:dark }
 
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
