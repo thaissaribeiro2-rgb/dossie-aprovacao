@@ -191,6 +191,31 @@ section{scroll-margin-top:72px}
 .copiar{font:inherit;font-size:.75rem;font-weight:700;letter-spacing:.04em;background:transparent;color:var(--title);border:1.5px solid var(--line);border-radius:999px;padding:6px 14px;cursor:pointer}
 .copiar:hover{border-color:var(--dourado)}
 
+/* Janela do Pix */
+button.lei-op{font:inherit;font-weight:600;font-size:.9rem;width:100%;background:transparent;cursor:pointer;text-align:left}
+.pix-fundo{position:fixed;inset:0;z-index:50;background:rgba(58,13,29,.62);display:grid;place-items:center;padding:max(16px,env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) max(16px,env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));overflow-y:auto}
+.pix-caixa{position:relative;width:100%;max-width:400px;background:var(--surface);border-radius:18px;border-top:5px solid var(--vinho);padding:26px 24px 22px;display:grid;gap:10px;justify-items:center;text-align:center;box-shadow:0 30px 60px -20px rgba(0,0,0,.45)}
+.pix-caixa h3{font-size:1.35rem}
+.pix-fechar{position:absolute;top:8px;right:10px;width:36px;height:36px;border:0;background:transparent;font-size:1.6rem;line-height:1;color:var(--fg-soft);cursor:pointer;border-radius:50%}
+.pix-fechar:hover{background:var(--surface-2)}
+.pix-valor{font-family:var(--serif);font-size:2rem;font-weight:800;color:var(--title);font-variant-numeric:tabular-nums}
+.pix-qr{background:#fff;padding:4px;border:1px solid var(--line);border-radius:12px;width:220px;height:220px;max-width:100%}
+.pix-qr svg{width:100%;height:100%;display:block}
+.pix-nome{font-size:.82rem;color:var(--fg-soft)}
+.pix-nota{font-size:.82rem;color:var(--fg);background:var(--surface-2);border-radius:10px;padding:10px 12px}
+.pix-nota a{color:var(--title);font-weight:700}
+.pix-label{font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);justify-self:start}
+#pix-codigo{width:100%;font:500 .72rem/1.4 ui-monospace,Consolas,monospace;color:var(--fg);background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:8px 10px;resize:none;word-break:break-all}
+.pix-passos{margin:4px 0 2px;padding-left:18px;text-align:left;font-size:.82rem;color:var(--fg-soft);display:grid;gap:2px;justify-self:stretch}
+.pix-form{display:grid;gap:4px;justify-self:stretch;text-align:left}
+.pix-form label{font-size:.78rem;font-weight:600;color:var(--fg);margin-top:4px}
+.pix-form input{font:inherit;font-size:.9rem;color:var(--fg);background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:9px 11px;width:100%}
+.pix-form input:focus{outline:2px solid var(--dourado);outline-offset:1px}
+.pix-erro{font-size:.8rem;font-weight:600;color:#a12a2a;margin-top:4px}
+.pix-aviso{font-size:.72rem;color:var(--fg-soft);margin-top:4px}
+.pix-caixa .btn-gold{width:100%}
+.pix-cartao{font-size:.8rem;color:var(--title);font-weight:600}
+
 /* Rodapé */
 .credito{background:var(--band);text-align:center}
 .credito .wrap{padding-block:22px;display:block}
@@ -308,13 +333,12 @@ section{scroll-margin-top:72px}
           <div class="preco"><strong>R$ 39,90</strong><small>por lei</small></div>
           <button class="btn btn-main btn-sm" type="button" id="btn-leis" aria-expanded="false" aria-controls="lista-leis">Quero uma lei</button>
           <div class="lista-leis" id="lista-leis" hidden>
-            <span class="eyebrow">Escolha a lei</span>
-            <!-- Trocar cada href pelo link de compra e pagamento da lei -->
-            <a class="lei-op" href="https://wa.me/5585985252056?text=Oi%2C%20Thaissa!%20Quero%20comprar%20a%20Lei%20de%20Drogas." target="_blank" rel="noopener"><span>Lei de Drogas</span><b>R$ 39,90 →</b></a>
-            <a class="lei-op" href="https://wa.me/5585985252056?text=Oi%2C%20Thaissa!%20Quero%20comprar%20a%20Lei%20Maria%20da%20Penha." target="_blank" rel="noopener"><span>Lei Maria da Penha</span><b>R$ 39,90 →</b></a>
-            <a class="lei-op" href="https://wa.me/5585985252056?text=Oi%2C%20Thaissa!%20Quero%20comprar%20a%20Estatuto%20do%20Desarmamento." target="_blank" rel="noopener"><span>Estatuto do Desarmamento</span><b>R$ 39,90 →</b></a>
-            <a class="lei-op" href="https://wa.me/5585985252056?text=Oi%2C%20Thaissa!%20Quero%20comprar%20a%20Lei%20de%20Crimes%20de%20Preconceito." target="_blank" rel="noopener"><span>Lei de Crimes de Preconceito</span><b>R$ 39,90 →</b></a>
-            <a class="lei-op" href="https://wa.me/5585985252056?text=Oi%2C%20Thaissa!%20Quero%20comprar%20a%20Lei%20de%20Abuso%20de%20Autoridade." target="_blank" rel="noopener"><span>Lei de Abuso de Autoridade</span><b>R$ 39,90 →</b></a>
+            <span class="eyebrow">Escolha a lei e pague com Pix</span>
+            <button type="button" class="lei-op" data-pix="lei" data-produto="Lei de Drogas"><span>Lei de Drogas</span><b>R$ 39,90 →</b></button>
+            <button type="button" class="lei-op" data-pix="lei" data-produto="Lei Maria da Penha"><span>Lei Maria da Penha</span><b>R$ 39,90 →</b></button>
+            <button type="button" class="lei-op" data-pix="lei" data-produto="Estatuto do Desarmamento"><span>Estatuto do Desarmamento</span><b>R$ 39,90 →</b></button>
+            <button type="button" class="lei-op" data-pix="lei" data-produto="Lei de Crimes de Preconceito"><span>Lei de Crimes de Preconceito</span><b>R$ 39,90 →</b></button>
+            <button type="button" class="lei-op" data-pix="lei" data-produto="Lei de Abuso de Autoridade"><span>Lei de Abuso de Autoridade</span><b>R$ 39,90 →</b></button>
           </div>
         </div>
       </article>
@@ -329,7 +353,7 @@ section{scroll-margin-top:72px}
             <li>Cronograma personalizado</li>
           </ul>
           <div class="preco"><strong>Consulte</strong><small>valores de acordo com seu cronograma</small></div>
-          <a class="btn btn-main btn-sm" href="https://wa.me/5585985252056?text=Oi%2C%20Thaissa!%20Tenho%20interesse%20em%20adquirir%20e%20quero%20saber%20mais%20sobre%20seus%20materiais.%20(Cronogramas)" target="_blank" rel="noopener">Quero um cronograma</a>
+          <button class="btn btn-main btn-sm" type="button" data-pix="crono" data-produto="Cronograma de estudo">Quero um cronograma</button>
         </div>
       </article>
 
@@ -344,7 +368,7 @@ section{scroll-margin-top:72px}
             <li>Foco no concurso previsto para 2027</li>
           </ul>
           <div class="preco"><strong>R$ 19,90</strong><small>avulso</small></div>
-          <a class="btn btn-main btn-sm" href="https://wa.me/5585985252056?text=Oi%2C%20Thaissa!%20Tenho%20interesse%20em%20adquirir%20e%20quero%20saber%20mais%20sobre%20seus%20materiais.%20(Raio-X%20GMF%202023)" target="_blank" rel="noopener">Quero o Raio-X</a>
+          <button class="btn btn-main btn-sm" type="button" data-pix="raiox" data-produto="Raio-X GMF 2023">Quero o Raio-X</button>
         </div>
       </article>
     </div>
@@ -365,8 +389,7 @@ section{scroll-margin-top:72px}
           <div class="linha total"><span>Total do pacote</span><b>R$ 149,50</b></div>
           <p class="economia">Você economiza R$ 50,00 e ainda leva o Raio-X.</p>
         </div>
-        <!-- Trocar o href pelo link de compra e pagamento do pacote -->
-        <a class="btn btn-main" href="https://wa.me/5585985252056?text=Oi%2C%20Thaissa!%20Quero%20comprar%20o%20pacote%20com%205%20leis%20bizuradas%20%2B%20Raio-X%20(R%24%20149%2C50)." target="_blank" rel="noopener">Ir para o pagamento · R$ 149,50</a>
+        <button class="btn btn-main" type="button" data-pix="pacote" data-produto="Pacote 5 leis bizuradas + Raio-X">Pagar com Pix · R$ 149,50</button>
       </div>
     </div>
   </div>
@@ -379,9 +402,9 @@ section{scroll-margin-top:72px}
       <h2>Simples e direto</h2>
     </div>
     <div class="grid">
-      <div class="passo"><span class="n">1</span><b>Chame no WhatsApp</b><p>Diga qual material ou pacote você quer e para qual concurso está estudando.</p></div>
-      <div class="passo"><span class="n">2</span><b>Escolha como pagar</b><p>Pix, débito ou crédito em até 10x (com juros da maquininha).</p></div>
-      <div class="passo"><span class="n">3</span><b>Receba o link</b><p>Materiais e cronogramas prontos em até 24 horas. Cronogramas personalizados em até 7 dias.</p></div>
+      <div class="passo"><span class="n">1</span><b>Escolha o material</b><p>Toque na lei, no Raio-X ou no pacote que você quer.</p></div>
+      <div class="passo"><span class="n">2</span><b>Pague com Pix</b><p>Leia o QR Code ou use o Pix copia e cola, já com o valor certo. Prefere cartão de crédito ou débito? Chame no WhatsApp.</p></div>
+      <div class="passo"><span class="n">3</span><b>Envie o comprovante</b><p>Mande o comprovante pelo WhatsApp e receba o link do material em até 24 horas.</p></div>
     </div>
 
     <div class="contato">
@@ -407,6 +430,38 @@ section{scroll-margin-top:72px}
   </div>
 </section>
 
+<div class="pix-fundo" id="pix-modal" hidden>
+  <div class="pix-caixa" role="dialog" aria-modal="true" aria-labelledby="pix-titulo">
+    <button type="button" class="pix-fechar" id="pix-fechar" aria-label="Fechar">×</button>
+    <span class="eyebrow">Pagamento via Pix</span>
+    <h3 id="pix-titulo">Material</h3>
+    <p class="pix-valor" id="pix-valor">R$ 0,00</p>
+    <p class="pix-nota" id="pix-nota" hidden>Digite no app do banco o valor que você combinou com a Thaissa. Ainda não combinou? <a id="pix-nota-zap" href="https://wa.me/5585985252056?text=Oi%2C%20Thaissa!%20Quero%20saber%20o%20valor%20do%20cronograma%20de%20estudo." target="_blank" rel="noopener">Fale comigo no WhatsApp</a>.</p>
+    <div class="pix-qr" id="pix-qr" aria-label="QR Code do Pix"></div>
+    <p class="pix-nome">Recebedor: <b>Thaissa Ribeiro</b></p>
+    <label class="pix-label" for="pix-codigo">Pix copia e cola</label>
+    <textarea id="pix-codigo" readonly rows="3"></textarea>
+    <button type="button" class="btn btn-ghost btn-sm" id="pix-copiar">Copiar código Pix</button>
+    <ol class="pix-passos">
+      <li>Abra o app do seu banco e pague pelo QR Code ou pelo código.</li>
+      <li>Preencha seus dados e toque no botão para enviar o comprovante.</li>
+    </ol>
+    <div class="pix-form">
+      <span class="pix-label">Seus dados</span>
+      <label for="pix-nome-in">Nome completo</label>
+      <input id="pix-nome-in" type="text" autocomplete="name" placeholder="Seu nome completo">
+      <label for="pix-cpf">CPF</label>
+      <input id="pix-cpf" type="text" inputmode="numeric" autocomplete="off" placeholder="000.000.000-00" maxlength="14">
+      <label for="pix-email">E-mail</label>
+      <input id="pix-email" type="email" autocomplete="email" placeholder="seuemail@exemplo.com">
+      <p class="pix-erro" id="pix-erro" role="alert" hidden></p>
+      <p class="pix-aviso">Seus dados vão junto com o comprovante para o WhatsApp da Thaissa.</p>
+    </div>
+    <a class="btn btn-gold" id="pix-zap" href="#" target="_blank" rel="noopener">Já paguei, enviar comprovante</a>
+    <a class="pix-cartao" id="pix-cartao" href="#" target="_blank" rel="noopener">Prefiro pagar no cartão de crédito ou débito</a>
+  </div>
+</div>
+
 <footer class="credito">
   <div class="wrap"><a href="https://www.ribexai.com.br/" target="_blank" rel="noopener">Desenvolvido por <b>RibeX AI</b></a></div>
 </footer>
@@ -423,6 +478,76 @@ document.querySelectorAll('.copiar').forEach(function(b){
     function fallback(){ var r = document.createRange(); r.selectNodeContents(el); var s = getSelection(); s.removeAllRanges(); s.addRange(r); b.textContent = 'Selecionado'; setTimeout(function(){ b.textContent = orig; }, 1600); }
     try { navigator.clipboard.writeText(txt).then(done, fallback); } catch(e){ fallback(); }
   });
+});
+var PIX={
+  crono:{valor:"Valor combinado",codigo:"00020126580014BR.GOV.BCB.PIX01365b208835-2053-4c05-8823-34ae945d75185204000053039865802BR5915Thaissa Ribeiro6009FORTALEZA62140510kVlqCVJepJ6304AD86",n:49,qr:"1fd75382d217f,1054c0c8cb741,1744757c17b5d,175d18d02d25d,174bee7e3085d,104e134431441,1fd555555557f,1322c701500,16ecdafd8064b,93a8e51692d2,17eb2cfa5fa8a,6bd085326917,8500278a31c5,da885b6034b9,1f6d7404d85f4,1b88aca1c0bf1,1bfbf52034512,183ab8e2bcb26,1d4b1236ade8b,ea2d49d8d6e3,15d3090bc0a28,6ad88abe3242,1df2057c90bfa,1d1c6a4677914,135867d6e515d,9133d4492511,17f326ffc17f8,1d3dc8d251089,1e5a15d6580bf,d1b2149bc387,1ee0d11223361,113fdacbbd679,2c055b904814,1f29c43bf330b,85a89469e9a0,1e830a573fbe7,4cb972825376,aaae92c9b55d,8ea6ac17463c,e20a0c7f6809,1c453efe9adfe,132e4716917,1fd431d486559,105cb946b9712,1747307f84df9,175a0c63739f7,1758b32fe6cd3,104d56626703c,1fdef7922188b"},
+  lei:{valor:"R$ 39,90",codigo:"00020126580014BR.GOV.BCB.PIX01365b208835-2053-4c05-8823-34ae945d7518520400005303986540539.905802BR5915Thaissa Ribeiro6009FORTALEZA62140510kVlqCVJepJ6304E764",n:53,qr:"1fc5edad62047f,1041e006a2ae41,175d512c59a25d,1756fe0006055d,175fb2ffd88c5d,105da6114e3c41,1fd5555555557f,1445116d9e00,17c280bf03ad7c,f9b16716b2695,137b7582854952,da35530b61462,1ce62b1f092b1e,11bf91c9902483,1356c36e6ae370,13301a92ba9003,d4f671c016f3f,11321d41c884b3,d64bdaac12a48,11ac9c1211eaa1,57ffe8fef5bd6,c3227306af419,1a7773ba8f19da,4ba69d0471e8a,1ff2d8bf2169fc,5134051fba511,1d5c7e95c5ab52,191d51d149d112,1ff6e0bffba5fe,1e963d4e590555,197d56c1b7c9b2,eb5703a709b72,8caea32c1adad,1c9e866a631412,966bc91c0eb80,301d70a76d253,4fe6d004de4ac,182359bcc5a4d1,14670a4b58a980,1c94eed8d52e49,1d6bf7406fa08a,92ecbc402471,1bed8f88aa8982,c2aa778491e5a,249781f2661f2,132a11582511,1fc43b95866b52,105bec31e35513,1751dfbf4325fe,17528c08683720,175f30eb85c81f,10493d428e3c12,1fdaa3f12dc4dc"},
+  raiox:{valor:"R$ 19,90",codigo:"00020126580014BR.GOV.BCB.PIX01365b208835-2053-4c05-8823-34ae945d7518520400005303986540519.905802BR5915Thaissa Ribeiro6009FORTALEZA62140510kVlqCVJepJ63041602",n:53,qr:"1fd52dad62047f,105ab1b079c641,1740c3f734125d,1754f90006055d,1745de5f03e45d,104013d1238c41,1fd5555555557f,1629b1b6f100,16e7267f6e1b4b,f9f06716b2695,15e0a8345e24e4,e8e13ebdba2b9,1ce6eb1f092b1e,6a6fc7f4b4935,87a75b50755ab,13321e92ba9003,1fec07aada0289,e0baa9aa53268,374feaac12a48,237f1a4ca8717,652885482ed0d,1432d7306af419,d6c0e0c54746c,1fb7f30b2aa851,1bf3d9bf2163fc,111824f120cb17,350cb55a81f59,1f1150d149d112,9f58d1f20c9f8,58f9b9534b38e,196d56c1b7c9b2,100e9d8cabf6c4,13e45ce9ac1b76,1c9c466a631412,1ff5dd271b8636,18296dd11b6488,3fe60004de4ac,db8370a1ec967,f4a7c90351f5b,15142dd8d52e49,1be08af6b4cd3c,1bbf6a672d82aa,1bdd9788aaa982,c21fece927bec,266c4df4bd3f9,112811582511,1fd955355d0754,105558f18ee318,1745ffbf4325fe,175de1beb35a96,17528630e87ec4,10494d428e3c12,1fd08e47f6e96a"},
+  pacote:{valor:"R$ 149,50",codigo:"00020126580014BR.GOV.BCB.PIX01365b208835-2053-4c05-8823-34ae945d75185204000053039865406149.505802BR5915Thaissa Ribeiro6009FORTALEZA62140510kVlqCVJepJ6304B44C",n:53,qr:"1fc770d67e847f,1044f14b650e41,17428bf1d5aa5d,17451802a6a55d,17466e7f63445d,10597a11fce441,1fd5555555557f,e6a51028200,12d5885fb197a0,173cbc79baa8ad,1549264c8fa9dc,1bb72ac09d27e,9685adbdd5ad9,c0d0c88a438f3,6e079cd46dba3,18b495ea55de3b,1cefdf92354cb2,a9bfdd9b5439d,12e49badc55b9b,16930ea3d63a98,14e9acac619bf5,5bda28289922d,3fc6d17b74258,121acfff34d116,1fe9b5f3e13f3,f140c113fbb10,19576555c89151,71ac2d1805f1a,11f23b1f3b47f0,30afa7119c3c9,1e7da75a99b975,e217c67418701,d4391eda7554e,123d8af8729b28,95a90cf630a0e,113fd7960b554d,e2a4c45d1559,1ea8ed0f2eb880,6f5e568ee117b,1c1fb020366468,105d980e57ab39,1ebbd920312365,1be1af47b6785d,c3eae498c022b,276e0ffab5dfd,10859138bb19,1fcefdd5fda95c,105e2fd13a931f,1749be9fe755f9,1752a8c19d2bd1,174bf87c38f03c,1042f3d881b12a,1fd2c2d4d96752"}
+};
+function qrSvg(d){
+  var n=d.n,q=4,rows=d.qr.split(','),path='';
+  for(var r=0;r<n;r++){
+    var bits=parseInt(rows[r],16).toString(2); while(bits.length<n) bits='0'+bits;
+    for(var c=0;c<n;){ if(bits[c]==='1'){ var s0=c; while(c<n&&bits[c]==='1') c++; path+='M'+(s0+q)+' '+(r+q)+'h'+(c-s0)+'v1h-'+(c-s0)+'z'; } else c++; }
+  }
+  var t=n+2*q;
+  return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 '+t+' '+t+'" shape-rendering="crispEdges" role="img" aria-label="QR Code do Pix"><rect width="100%" height="100%" fill="#fff"/><path fill="#000" d="'+path+'"/></svg>';
+}
+var ZAP="https://wa.me/5585985252056?text=";
+var atual=null, erroBox=document.getElementById('pix-erro');
+var fNome=document.getElementById('pix-nome-in'), fCpf=document.getElementById('pix-cpf'), fMail=document.getElementById('pix-email');
+fCpf.addEventListener('input',function(){
+  var v=fCpf.value.replace(/\D/g,'').slice(0,11), o=v;
+  if(v.length>9) o=v.slice(0,3)+'.'+v.slice(3,6)+'.'+v.slice(6,9)+'-'+v.slice(9);
+  else if(v.length>6) o=v.slice(0,3)+'.'+v.slice(3,6)+'.'+v.slice(6);
+  else if(v.length>3) o=v.slice(0,3)+'.'+v.slice(3);
+  fCpf.value=o;
+});
+function cpfValido(c){
+  c=c.replace(/\D/g,''); if(c.length!==11||/^(\d)\1{10}$/.test(c)) return false;
+  for(var t=9;t<11;t++){ var soma=0; for(var i=0;i<t;i++) soma+=parseInt(c[i])*((t+1)-i); var dv=((10*soma)%11)%10; if(dv!==parseInt(c[t])) return false; }
+  return true;
+}
+function dadosOk(){
+  var faltas=[];
+  if(fNome.value.trim().split(/\s+/).length<2) faltas.push('nome completo');
+  if(!cpfValido(fCpf.value)) faltas.push('CPF válido');
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(fMail.value.trim())) faltas.push('e-mail válido');
+  if(faltas.length){ erroBox.textContent='Preencha: '+faltas.join(', ')+'.'; erroBox.hidden=false; return false; }
+  erroBox.hidden=true; return true;
+}
+function linhasDados(){ return '\n\nNome completo: '+fNome.value.trim()+'\nCPF: '+fCpf.value+'\nE-mail: '+fMail.value.trim(); }
+document.getElementById('pix-zap').addEventListener('click',function(e){
+  if(!atual||!dadosOk()){ e.preventDefault(); return; }
+  var v=atual.valor==='Valor combinado'?'o valor combinado':atual.valor;
+  this.href=ZAP+encodeURIComponent('Oi, Thaissa! Acabei de pagar '+v+' via Pix pelo material "'+atual.produto+'".'+linhasDados()+'\n\nSegue o comprovante:');
+});
+document.getElementById('pix-cartao').addEventListener('click',function(e){
+  if(!atual||!dadosOk()){ e.preventDefault(); return; }
+  this.href=ZAP+encodeURIComponent('Oi, Thaissa! Quero comprar o material "'+atual.produto+'" ('+atual.valor.toLowerCase()+') e prefiro pagar no cartão.'+linhasDados());
+});
+var pm=document.getElementById('pix-modal'), pq=document.getElementById('pix-qr'), pc=document.getElementById('pix-codigo'), ultimoFoco=null;
+function abrirPix(tipo,produto){
+  var d=PIX[tipo]; if(!d) return;
+  document.getElementById('pix-titulo').textContent=produto;
+  document.getElementById('pix-valor').textContent=d.valor;
+  pc.value=d.codigo;
+  pq.innerHTML=qrSvg(d);
+  atual={valor:d.valor,produto:produto};
+  document.getElementById('pix-nota').hidden=(tipo!=='crono');
+  erroBox.hidden=true;
+  ultimoFoco=document.activeElement; pm.hidden=false; document.getElementById('pix-fechar').focus();
+}
+function fecharPix(){ pm.hidden=true; if(ultimoFoco) ultimoFoco.focus(); }
+document.querySelectorAll('[data-pix]').forEach(function(b){ b.addEventListener('click',function(){ abrirPix(b.dataset.pix,b.dataset.produto); }); });
+document.getElementById('pix-fechar').addEventListener('click',fecharPix);
+pm.addEventListener('click',function(e){ if(e.target===pm) fecharPix(); });
+document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&!pm.hidden) fecharPix(); });
+document.getElementById('pix-copiar').addEventListener('click',function(){
+  var b=this; function ok(t){ b.textContent=t; setTimeout(function(){ b.textContent='Copiar código Pix'; },1800); }
+  function sel(){ pc.focus(); pc.select(); ok('Código selecionado'); }
+  try{ navigator.clipboard.writeText(pc.value).then(function(){ ok('Código copiado'); },sel); }catch(e){ sel(); }
 });
 </script>
 
