@@ -403,7 +403,7 @@ button.lei-op{font:inherit;font-weight:600;font-size:.9rem;width:100%;background
     </div>
     <div class="grid">
       <div class="passo"><span class="n">1</span><b>Escolha o material</b><p>Toque na lei, no Raio-X ou no pacote que você quer.</p></div>
-      <div class="passo"><span class="n">2</span><b>Pague com Pix</b><p>Leia o QR Code ou use o Pix copia e cola, já com o valor certo. Prefere cartão de crédito ou débito? Chame no WhatsApp.</p></div>
+      <div class="passo"><span class="n">2</span><b>Pague com Pix</b><p>Leia o QR Code ou use o Pix copia e cola, já com o valor certo. Prefere cartão de crédito? Chame no WhatsApp e receba o link de pagamento.</p></div>
       <div class="passo"><span class="n">3</span><b>Envie o comprovante</b><p>Mande o comprovante pelo WhatsApp e receba o link do material em até 24 horas.</p></div>
     </div>
 
@@ -458,7 +458,7 @@ button.lei-op{font:inherit;font-weight:600;font-size:.9rem;width:100%;background
       <p class="pix-aviso">Seus dados vão junto com o comprovante para o WhatsApp da Thaissa.</p>
     </div>
     <a class="btn btn-gold" id="pix-zap" href="#" target="_blank" rel="noopener">Já paguei, enviar comprovante</a>
-    <a class="pix-cartao" id="pix-cartao" href="#" target="_blank" rel="noopener">Prefiro pagar no cartão de crédito ou débito</a>
+    <a class="pix-cartao" id="pix-cartao" href="#" target="_blank" rel="noopener">Prefiro pagar no cartão de crédito</a>
   </div>
 </div>
 
@@ -525,7 +525,7 @@ document.getElementById('pix-zap').addEventListener('click',function(e){
 });
 document.getElementById('pix-cartao').addEventListener('click',function(e){
   if(!atual||!dadosOk()){ e.preventDefault(); return; }
-  this.href=ZAP+encodeURIComponent('Oi, Thaissa! Quero comprar o material "'+atual.produto+'" ('+atual.valor.toLowerCase()+') e prefiro pagar no cartão.'+linhasDados());
+  this.href=ZAP+encodeURIComponent('Oi, Thaissa! Quero comprar o material "'+atual.produto+'" ('+atual.valor.toLowerCase()+') e prefiro pagar no cartão de crédito.'+linhasDados());
 });
 var pm=document.getElementById('pix-modal'), pq=document.getElementById('pix-qr'), pc=document.getElementById('pix-codigo'), ultimoFoco=null;
 function abrirPix(tipo,produto){
